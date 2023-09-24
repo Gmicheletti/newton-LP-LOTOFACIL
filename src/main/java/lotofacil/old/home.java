@@ -1,13 +1,17 @@
 package lotofacil;
 
+import javax.swing.*;
+import java.awt.*;
 import java.io.IOException;
 import java.util.Random;
 import java.util.Scanner;
 
 public class home {
 
+
     public static void main(String[] args) throws IOException {
      menu();
+
     }
 
     private static void menu() throws IOException {
@@ -54,7 +58,7 @@ public class home {
 
         }
 
-    private static void zeroCem() {
+    private static void zeroCem() throws IOException {
 
         int opcaoZeroCem = -1;
         Scanner scn = new Scanner(System.in);
@@ -124,10 +128,9 @@ public class home {
 
 
 
-
     }
 
-    private static void parImpar(){
+    private static void parImpar() throws IOException{
         int numbInput;
         Scanner scn = new Scanner(System.in);
 
