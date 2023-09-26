@@ -6,6 +6,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.IOException;
 import java.util.Random;
+import java.util.Scanner;
 import javax.swing.UIManager;
 
 
@@ -20,19 +21,24 @@ public class homeGUI extends JFrame{
     private JButton jButtonAposta1 = new JButton("Apostas de 1 a 100"); //BOTAO
     private JButton jButtonAposta2 = new JButton("Apostas de A a Z"); //BOTAO
     private JButton jButtonAposta3 = new JButton("Apostas Par ou Ímpar"); //BOTAO
+    private JLabel jLabelDev = new JLabel("developed by Guilherme Micheletti"); //MENSAGEM
 
 
 
+
+    JLabel iconCasino = new JLabel(new ImageIcon("./src/main/java/lotofacil/imgs/casino.gif"));    //LOGOS DO SISTEMA
+
+    ImageIcon iconMachine = new ImageIcon("./src/main/java/lotofacil/imgs/machine.gif");    //LOGOS DO SISTEMA
     ImageIcon iconWin = new ImageIcon("./src/main/java/lotofacil/imgs/win.gif");    //LOGOS DO SISTEMA
     ImageIcon iconLose = new ImageIcon("./src/main/java/lotofacil/imgs/lose.gif");    //LOGOS DO SISTEMA
-    ImageIcon iconMachine = new ImageIcon("./src/main/java/lotofacil/imgs/machine.gif");    //LOGOS DO SISTEMA
-    JLabel iconCasino = new JLabel(new ImageIcon("./src/main/java/lotofacil/imgs/casino.gif"));    //LOGOS DO SISTEMA
+    ImageIcon iconAlert = new ImageIcon("./src/main/java/lotofacil/imgs/alert.gif");   //LOGOS DO SISTEMA
+
 
 
 
     public homeGUI(){ //DEFINE PARAMETROS DE LAYOUT DA JANELA
         this.setTitle("LOTOFÁCIL GM");
-        this.setSize(400,400);
+        this.setSize(400,450);
         painel.setLayout(new FlowLayout(FlowLayout.CENTER,200,20));
         painel.setBackground(new Color(255, 255, 255));
         painel.add(iconCasino);
@@ -41,6 +47,7 @@ public class homeGUI extends JFrame{
         painel.add(jButtonAposta1);
         painel.add(jButtonAposta2);
         painel.add(jButtonAposta3);
+        painel.add(jLabelDev);
         this.getContentPane().add(painel);
         this.setLocationRelativeTo(null); //CENTRALIZA JANELA
         this.setDefaultCloseOperation(EXIT_ON_CLOSE);
@@ -81,8 +88,10 @@ public class homeGUI extends JFrame{
             @Override
             public void actionPerformed(ActionEvent e) {
                 Object aposta3 = JOptionPane.showInputDialog(null,"Insira um numero para começar","Aposta 3", JOptionPane.INFORMATION_MESSAGE, iconMachine, null, ""  );
+
                 int numeroApostado = Integer.parseInt(aposta3.toString());
-                parImpar(numeroApostado);
+
+                    parImpar(numeroApostado);
             }
         });
 
@@ -110,7 +119,7 @@ public class homeGUI extends JFrame{
 
         if(opcaoZeroCem < 0 || opcaoZeroCem > 100){
 //                System.out.println(); FORMA DE PRINTAR DADOS NO TERMINAL
-            JOptionPane.showMessageDialog(null,"Número Inválido","Aposta 1", JOptionPane.INFORMATION_MESSAGE, iconLose);
+            JOptionPane.showMessageDialog(null,"Número Inválido","Aposta 1", JOptionPane.INFORMATION_MESSAGE, iconAlert);
 
         } else if(numbSorteado == opcaoZeroCem){
             JOptionPane.showMessageDialog(null,"Você ganhou R$ 1.000,00 reais.","Aposta 1", JOptionPane.INFORMATION_MESSAGE, iconWin);
@@ -147,7 +156,7 @@ public class homeGUI extends JFrame{
             }
         }else {
 
-            JOptionPane.showMessageDialog(null,"Aposta inválida.","Aposta 2", JOptionPane.INFORMATION_MESSAGE, iconLose);
+            JOptionPane.showMessageDialog(null,"Aposta inválida.","Aposta 2", JOptionPane.INFORMATION_MESSAGE, iconAlert);
         }
 
 
@@ -162,18 +171,20 @@ public class homeGUI extends JFrame{
         int numbInput = numeroApostado;
 
 
-        switch (numbInput % 2){
-            case 0:
-                JOptionPane.showMessageDialog(null,"Você ganhou R$ 100,00 reais.","Aposta 3", JOptionPane.INFORMATION_MESSAGE, iconWin);
-                break;
-            default:
-                JOptionPane.showMessageDialog(null,"Que pena! O número digitado é ímpar e a premiação foi para números pares.","Aposta 3", JOptionPane.INFORMATION_MESSAGE, iconLose);
+            switch (numbInput % 2){
+                case 0:
+                    JOptionPane.showMessageDialog(null,"Você ganhou R$ 100,00 reais.","Aposta 3", JOptionPane.INFORMATION_MESSAGE, iconWin);
+                    break;
+                default:
+                    JOptionPane.showMessageDialog(null,"Que pena! O número digitado é ímpar e a premiação foi para números pares.","Aposta 3", JOptionPane.INFORMATION_MESSAGE, iconLose);
+            }
         }
+
 
 
     }
 
-}
+
 
 
 
