@@ -1,4 +1,4 @@
-# README - Jogo Lotofácil
+# README - Jogo Lotofácil GM
 
 Este README fornece uma visão geral e documentação para o programa de jogo Lotofácil desenvolvido por Guilherme Micheletti. O programa é escrito em Java e permite aos usuários jogar três jogos de apostas diferentes: "Apostar de 1 a 100", "Apostar de A à Z" e "Apostar em par ou ímpar".
 
